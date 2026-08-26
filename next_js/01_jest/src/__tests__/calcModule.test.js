@@ -4,18 +4,34 @@
 
 import {divide, minus, multiply, plus} from "@/app/calcModule";
 
-describe('사칙연산테스트',function () {
-    test('더하기 모듈 테스트',function () {
-        expect(plus(10,30)).toBe(40);
+describe('사칙연산 통합 테스트(정상,에러)', function () {
+    describe('사칙연산테스트', function () {
+        test('더하기 모듈 테스트', function () {
+            expect(plus(10, 30)).toBe(40);
+        });
+
+        test('빼기 모듈 테스트', function () {
+            expect(minus(30, 10)).toBe(20); // 💡 30, 30 대신 a가 더 큰 값 전달
+        });
+
+        test('곱하기 모듈 테스트', function () {
+            expect(multiply(10, 30)).toBe(300);
+        });
+
+        test('나누기 모듈 테스트', function () {
+            expect(divide(4, 2)).toBe(2);
+        });
     });
-    test('빼기 모듈 테스트',function () {
-        expect(minus(30,30)).toBe(0);
-    });
-    test('곱하기 모듈 테스트',function () {
-        expect(multiply(10,30)).toBe(300);
-    });
-    test('나누기 모듈 테스트',function () {
-        expect(divide(4,2)).toBe(2);
+
+    describe('사칙연산 에러 테스트', function () {
+        test('a 보다 b 값이 클 경우 ', function () {
+            // 💡 실제 던지는 에러 문구와 정확히 일치시킴 ('샘' 및 띄어쓰기)
+            expect(() => minus(10, 30)).toThrow('뺄샘의 값은 0보다 커야 합니다');
+        });
+
+        test('0 으로 나누기 시도', function () {
+            expect(() => divide(4, 0)).toThrow('0으로 나눌수 없습니다.');
+        });
     });
 });
 
