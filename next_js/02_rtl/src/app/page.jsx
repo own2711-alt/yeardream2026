@@ -2,7 +2,7 @@
  1. JEST 설치
  2. React-Test-Library 설치
  3. jest.config.js 설정
- 4. jest.setpu.js 설정(test에서만 쓸 환경설정)
+ 4. jest.setuo.js 설정(test에서만 쓸 환경설정)
  5. package.json. 에 test script 추가
  6. 모듈작성(테스터블 하게)
  7. 테스트코드 작성
