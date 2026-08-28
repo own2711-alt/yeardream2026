@@ -8,7 +8,7 @@ let schema = new mongoose.Schema({
         unique:true, // 중복허용안함
         trim:true,     //  앞뒤 공백 잘라서 가져옴
         minlength:[4,'아이디는 4자 이상 입니다.'],
-        maxLength:[25,'아이디는 25자 이하 입니다.']
+        maxlength:[25,'아이디는 25자 이하 입니다.']
     },
     pw:{
         type:String,
@@ -20,7 +20,6 @@ let schema = new mongoose.Schema({
         type:String,
         required:[true,'이름은 필수 입니다.'],
         trim:true,
-        unique:true
     },
     phone:{
         type:String,
