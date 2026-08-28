@@ -1,31 +1,33 @@
 const express = require('express');
 const router = express.Router();
 
-// 회원 가입 (/member/join)
-router.post('/join', (req, res) => {
-    res.json({'success': true,'data':'회원가입 완료'});
+// 회원 가입(/member/join)
+router.post('/join',function(req,res){
+    const param = req.body;
+    res.json({'success':true,'data':param});
 });
 
-// 회원 리스트 (/member/list, /member)
-router.get(['/list','/'], (req, res) => {
-    res.json({'success': true,'data':[]});
-}); // <--- 여기 괄호 오타 수정완료!
+// 회원 리스트(/member/list, /memeber/)
+router.get(['/list','/'],function(req,res){
+    res.json({'success':true,'data':[]});
+});
 
-// 회원정보 상세보기 (/member/get/:id)
-router.get('/get/:id', (req, res) => {
+// 회원정보 상세보기(/member/get/:id)
+router.get('/get/:id',function(req,res){
     const {id} = req.params;
-    res.json({'success': true,'data':{'id':id,'msg':'상세보기 완료'}});
+    res.json({'success':true,'data':{'id':id,'msg':'상세보기 완료'}});
 });
 
-// 회원정보 수정 (/member/update/:id)
-router.put('/update/:id', (req, res) => {
+// 회원정보 수정(/member/update/:id)
+router.put('/update/:id',function(req,res){
     const {id} = req.params;
-    res.json({'success': true,'data':{'id':id,'msg':'수정 완료'}});
+    const param = req.body;
+    res.json({'success':true,'data':{'id':id,'msg':param}});
 });
 
-// 회원 삭제 (/member/delete/:id)
-router.delete('/delete/:id', (req, res) => {
-    res.json({'success': true,'data':'회원삭제 완료'});
+// 회원 삭제(/member/delete/:id)
+router.delete('/delete/:id',function(req,res){
+    res.json({'success':true,'data':'회원삭제 완료'});
 });
 
 module.exports = router;
